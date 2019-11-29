@@ -1,0 +1,176 @@
+﻿<Page x:Class="SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias.UrgenciasP2"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias"
+      mc:Ignorable="d"
+      Title="UrgenciasP2" Width="1522.227" Height="825.64">
+
+
+    <StackPanel Background="White" VerticalAlignment="Stretch">
+        <Canvas Height="8" Margin="52,30,60,0" Background="#21CCEF" Opacity="0.73"/>
+        <Button Style="{StaticResource BotonD}" Margin="1280,30,107,0" FontSize="30" FontFamily="Segoe UI" FontStyle="Italic" Foreground="White" Background="#FFD4252B">
+            Cancelar
+        </Button>
+        <TextBlock TextWrapping="Wrap" Margin="140,-55,630,0" Height="67" FontSize="50" FontFamily="Arial Rounded MT" Foreground="#5FC2FB" ><Bold><Run Text="Datos Del Paciente"/></Bold></TextBlock>
+        <Image Height="68" Margin="28,-80,0,0" Source="/SistemaUrgencia_v2.0;component/Image1.png" Stretch="Fill" HorizontalAlignment="Left" Width="94"/>
+        <Canvas Height="8" Margin="52,0,60,0" Background="#21CCEF" Opacity="0.73"/>
+        <TextBlock Margin="80,0,-80,0" FontFamily="Roboto" FontSize="30" FontWeight="Regular" Foreground="#060610" >Por favor llene el sigiente formulario:</TextBlock>
+
+        <!--Datos personales-->
+
+        <TextBlock Margin="109,10,1114,0" FontFamily="Roboto" FontSize="20" FontWeight="Regular" Foreground="#060610" >N° Historial:</TextBlock>
+        <TextBox Height="22" TextWrapping="Wrap" Text="TextBox" Margin="222,-24,1186,0"/>
+
+        <!--Datos previos-->
+
+        <TextBlock Margin="80,20,1048,0" FontFamily="Roboto" FontSize="25" FontWeight="Regular" Foreground="#060610" >valoracion inicial:</TextBlock>
+
+        <TextBlock Margin="155,10,1300,0" FontFamily="Roboto" FontSize="18" FontWeight="Regular" Foreground="#060610" >Dolor:</TextBlock>
+        <ComboBox  Margin="222,-24,1186,0">
+            <ComboBoxItem IsSelected="True">Agudo</ComboBoxItem>
+            <ComboBoxItem>Cronico</ComboBoxItem>
+            <ComboBoxItem>Emocional</ComboBoxItem>
+            <ComboBoxItem>Psicologico</ComboBoxItem>
+            <ComboBoxItem>Neuropatico</ComboBoxItem>
+            <ComboBoxItem>Nociceptivo</ComboBoxItem>
+            <ComboBoxItem>Psicogeno</ComboBoxItem>
+            <ComboBoxItem>Somatico</ComboBoxItem>
+            <ComboBoxItem>Visceral</ComboBoxItem>
+            <ComboBoxItem>Leve</ComboBoxItem>
+            <ComboBoxItem>Moderado</ComboBoxItem>
+            <ComboBoxItem>Severo</ComboBoxItem>
+        </ComboBox>
+
+        <TextBlock Margin="389,-25,1058,0" Height="30" FontSize="18" FontFamily="Roboto">Fractura:</TextBlock>
+        <TextBox Margin ="469,-30,811,0" Height="24"></TextBox>
+
+        <TextBlock Margin="746,-30,712,0" Height="30" FontSize="18" FontFamily="Roboto">Lugar:</TextBlock>
+        <TextBox Margin ="810,-30,387,0" Height="24"></TextBox>
+
+        <TextBlock Margin="155,20,1300,0" Height="30" FontSize="18" FontFamily="Roboto">Alergias:</TextBlock>
+        <RadioButton GroupName="alergias" Margin="230,-30,1162,0" Height="20" FontSize="18" FontFamily="Roboto">No conocidas</RadioButton>
+        <RadioButton GroupName="alergias" Margin="377,-28,1092,0" Height="20" FontSize="18" FontFamily="Roboto">Si A:</RadioButton>
+        <TextBox Margin="440,-30,788,0" Height="24"></TextBox>
+
+        <Grid Height="326" Margin="40,30,953,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="116*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="65*"/>
+                <ColumnDefinition Width="283*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <!--titulos del Grid-->
+            <Label Grid.Column="0" Grid.Row="0" FontSize="15" Content="Necesidad" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="1" Grid.Row="0" FontSize="15" Content="Normal" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="2" Grid.Row="0" FontSize="15" Content="alterada" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="3" Grid.Row="0" FontSize="15" Content="Ayuda" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <!--tipos de necesidades-->
+            <Label Grid.Column="0" Grid.Row="1" FontSize="15" Content="Respiracion" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="2" FontSize="15" Content="Hidratacion" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="3" FontSize="15" Content="Conciencia" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="4" FontSize="15" Content="Seguridad" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="5" FontSize="15" Content="Sensorial" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="6" FontSize="15" Content="Eliminacion" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="7" FontSize="15" Content="Movilidad" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <Label Grid.Column="0" Grid.Row="8" FontSize="15" Content="comunicacion" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <!--radioButon normal-alterada-->
+
+            <!--Respiracion-->
+            <Label Grid.Column="1" Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+
+            <!--Respiracion-->
+
+            <Label Grid.Column="1" Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+            <!--Hidratacion-->
+            <Label Grid.Column="1" Grid.Row="2" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="hidratacion"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="2" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="hidratacion"/>
+            </Label>
+            <!--Conciencia-->
+            <Label Grid.Column="1" Grid.Row="3" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="conciensia"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="3" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="conciensia"/>
+            </Label>
+            <!--Seguridad-->
+            <Label Grid.Column="1" Grid.Row="4" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="seguridad"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="4" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="seguridad"/>
+            </Label>
+            <!--Sensorial-->
+            <Label Grid.Column="1" Grid.Row="5" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="sensorial"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="5" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="sensorial"/>
+            </Label>
+            <!--Eliminacion-->
+            <Label Grid.Column="1" Grid.Row="6" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="eliminacion"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="6" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="eliminacion"/>
+            </Label>
+            <!--Movilidad-->
+            <Label Grid.Column="1" Grid.Row="7" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="movilidad"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="7" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="movilidad"/>
+            </Label>
+            <!--Comunicacion-->
+            <Label Grid.Column="1" Grid.Row="8" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+            <Label Grid.Column="2" Grid.Row="8" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <RadioButton GroupName="respiracion"/>
+            </Label>
+            <!--ayuda-->
+            <TextBox Grid.Column="3" Grid.Row="1" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="2" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="3" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="4" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="5" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="6" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="7" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+            <TextBox Grid.Column="3" Grid.Row="8" FontSize="15" BorderBrush="Black" BorderThickness="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        </Grid>
+
+        <TextBlock Margin="664,-600,644,0" FontSize="18" Height="24" FontFamily="Roboto">Otros signos y síntomas:</TextBlock>
+        <TextBox Margin="863,-600,220,0" FontSize="18" Height="24"/>
+
+        <TextBlock Margin="664,-480,644,0" FontSize="18" Height="28" FontFamily="Roboto">Necesidad de ayuda social:</TextBlock>
+        <RadioButton Margin="920,-480,550,0" Height="24" FontSize="18" FontFamily="Roboto">NO</RadioButton>
+        <RadioButton Margin="994,-480,372,0" Height="24" FontSize="18" FontFamily="Roboto">Si Entregados a:</RadioButton>
+        <TextBox Margin="1155,-480,60,0" Height="24"></TextBox>
+    </StackPanel>
+
+</Page>

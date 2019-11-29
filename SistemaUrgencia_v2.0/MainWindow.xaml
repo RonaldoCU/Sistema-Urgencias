@@ -1,0 +1,17 @@
+﻿<Window x:Class="SistemaUrgencia_v2._0.page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SistemaUrgencia_v2._0"
+        mc:Ignorable="d"
+        Title="MainWindow" WindowState="Maximized" Width="1358.5" Height="739.833">
+    <Grid Background="#5FC2FB ">
+        <Button Content="Urgencias" Click="Bt_urgencias" FontWeight="Light" Margin="48,27,1148,631"  />
+        <Frame x:Name="Vistas" NavigationUIVisibility="Hidden"  Margin="28,10,1074,631" Navigated="Vistas_Navigated" ></Frame>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Margin="0,116,0,10">
+            <Frame x:Name="Main" NavigationUIVisibility="Hidden" BorderBrush="Black" BorderThickness="0.5"  Height="759" Width="1326" Background="White"/>
+        </ScrollViewer>
+    </Grid>
+</Window> 
