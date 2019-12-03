@@ -32,7 +32,7 @@ namespace SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias
 
         private void Siguiente1(object sender, RoutedEventArgs e)
         {
-            Main.navegate
+            NavigationService.Navigate(new UrgenciasP2());
         }
     }
 }

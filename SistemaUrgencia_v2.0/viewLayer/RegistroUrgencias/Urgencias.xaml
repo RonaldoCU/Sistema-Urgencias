@@ -10,7 +10,7 @@
 
     <StackPanel Background="White" Width="1324" VerticalAlignment="Stretch">
         <Canvas Height="8" Margin="52,30,60,0" Background="#21CCEF" Opacity="0.73"/>
-        <Button Margin="1020,30,107,0"  FontSize="30" FontFamily="Segoe UI" FontStyle="Italic" Foreground="White" Background="#FFD4252B" Click="cancelar1" Height="44">
+        <Button Margin="1020,30,107,0"  FontSize="30" FontFamily="Roboto" FontStyle="Italic" Foreground="White" Background="#FFD4252B" Click="cancelar1" Height="44">
             Cancelar
         </Button>
 

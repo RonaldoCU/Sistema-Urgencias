@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias"
       mc:Ignorable="d"
-      Title="UrgenciasP3" Height="719.351" Width="1585.567">
+      Title="UrgenciasP3" Width="1324.227" Height="642.64">
 
 
     <StackPanel Background="White" VerticalAlignment="Stretch">
         <Canvas Height="8" Margin="52,30,60,0" Background="#21CCEF" Opacity="0.73"/>
-        <Button Style="{StaticResource BotonD}" Margin="1280,30,107,0" FontSize="30" FontFamily="Segoe UI" FontStyle="Italic" Foreground="White" Background="#FFD4252B">
+        <Button Margin="1020,30,107,0" Height="44" FontSize="30" FontFamily="Roboto" FontStyle="Italic" Foreground="White" Background="#FFD4252B" Click="cancelar3">
             Cancelar
         </Button>
         <TextBlock TextWrapping="Wrap" Margin="140,-55,630,0" Height="67" FontSize="50" FontFamily="Arial Rounded MT" Foreground="#5FC2FB" ><Bold><Run Text="Datos Del Paciente"/></Bold></TextBlock>
@@ -24,9 +24,9 @@
         <TextBox Height="22" TextWrapping="Wrap" Text="TextBox" Margin="222,-24,1186,0"/>
 
         <!--Datos previos-->
-        <Label FontSize="20" Margin="80,20,1311,0" FontFamily="Roboto">Constantes Vitales</Label>
+        <Label FontSize="20" Margin="154,20,975,0" FontFamily="Roboto">Constantes Vitales</Label>
 
-        <Grid Height="295" Margin="28,20,817,0">
+        <Grid Height="240" Margin="102,20,743,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -88,15 +88,15 @@
 
 
         <!--Perdidas de solidos/liquidos-->
-        <Label FontSize="20" Margin="868,-660,425,0" Height="44">Perdidas de solidos/liquidos</Label>
+        <Label FontSize="20" Margin="714,-554,347,0" Height="44">Perdidas de solidos/liquidos</Label>
 
-        <Grid Height="295" Margin="816,-300,29,0">
+        <Grid Height="240" Margin="672,-240,138,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="1.6*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -149,6 +149,26 @@
             <Label Grid.Column="4" Grid.Row="5" BorderThickness="1" BorderBrush="black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Margin="22,0,0,0" Content="M-Meleas"/>
             <Label Grid.Column="4" Grid.Row="6" BorderThickness="1" BorderBrush="black" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" Margin="22,0,0,0" Content="B-Bilioso"/>
         </Grid>
+        <Label Margin="1178,30,52,0" Height="34" FontFamily="Roboto" FontSize="20">Siguiente</Label>
+        <Button   Height="52" Margin="1156,0,50,0" Background="White" Click="Siguiente3">
+            <Image Source="/SistemaUrgencia_v2.0;component/Img/flecha.gif" RenderTransformOrigin="0.5,0.5" Width="88" Height="39">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.00"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <!--boton atras-->
 
+        <Label Margin="52,-140,1156,0" Height="34" FontFamily="Roboto" FontSize="20">Atras</Label>
+        <Button Height="52" Margin="50,-52,1156,0" Background="White" Click="atras2">
+            <Image Source="/SistemaUrgencia_v2.0;component/Img/flecha.gif" RenderTransformOrigin="0.5,0.5" Width="88" Height="39">
+
+            </Image>
+        </Button>
     </StackPanel>
 </Page>

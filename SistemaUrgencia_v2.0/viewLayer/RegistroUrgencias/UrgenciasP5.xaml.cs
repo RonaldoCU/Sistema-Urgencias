@@ -16,31 +16,39 @@ using System.Windows.Shapes;
 namespace SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias
 {
     /// <summary>
-    /// Lógica de interacción para UrgenciasP3.xaml
+    /// Lógica de interacción para UrgenciasP5.xaml
     /// </summary>
-    public partial class UrgenciasP3 : Page
+    public partial class UrgenciasP5 : Page
     {
-        public UrgenciasP3()
+        public UrgenciasP5()
         {
             InitializeComponent();
         }
 
-        private void atras2(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new UrgenciasP2());
-        }
-
-        private void Siguiente3(object sender, RoutedEventArgs e)
+        private void atras4(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UrgenciasP4());
         }
 
-        private void cancelar3(object sender, RoutedEventArgs e)
+        private void cancelar5(object sender, RoutedEventArgs e)
         {
             MessageBoxResult rstd = MessageBox.Show("Desea cancelar el resistro", "Urgencias", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
             if (rstd == MessageBoxResult.Yes)
             {
                 Application.Current.Shutdown();
+            }
+        }
+
+        private void Guardar(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult rstd = MessageBox.Show("Desaguardar estos datos", "Urgencias", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (rstd == MessageBoxResult.Yes)
+            {
+                MessageBoxResult conf = MessageBox.Show("Datos Guardados", "Urgencias", MessageBoxButton.OK, MessageBoxImage.Question);
+                if (conf == MessageBoxResult.OK)
+                {
+                    NavigationService.Navigate(new Urgencias());
+                }
             }
         }
     }

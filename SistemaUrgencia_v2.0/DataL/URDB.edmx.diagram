@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69e29e695639436bbca8c8ab54eb61c9" Name="Diagram1">
+        <EntityTypeShape EntityType="DBUrgenciasModel.Analisis" Width="1.5" PointX="3" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.ConstantesVitales" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.DarCamas" Width="1.5" PointX="9.5" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.DatosUrgencia" Width="1.5" PointX="9.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Imagenes" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Ingresos" Width="1.5" PointX="11.125" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Perdida_liquidos" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Prescripcion_Emergencia" Width="1.5" PointX="6.625" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Solicitud" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.TipoPrescripcion" Width="1.5" PointX="0.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBUrgenciasModel.Valoracion_inicial" Width="1.5" PointX="6.875" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Analisis__id_sol__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Valoracio__id_an__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Valoracio__id_co__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Ingresos__id_cam__398D8EEE" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__DatosUrge__id_mo__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__DatosUrge__id_va__5441852A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Imagenes__id_sol__412EB0B6" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Valoracio__id_Ra__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Valoracio__id_p___4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Prescripc__id_pr__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="DBUrgenciasModel.FK__Valoracio__id_pr__5070F446" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

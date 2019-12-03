@@ -9,6 +9,6 @@
 
     <Grid Background="#5FC2FB" Margin="0,0,-12,0">
 
-        <Button Content="Urgencias" FontWeight="Light" FontFamily="Roboto" FontSize="50" Foreground="White" Height="Auto"/>
+        <Button Content="Urgencias" FontWeight="Light" FontFamily="Roboto" FontSize="50" Foreground="White" Height="Auto" Background="#5FC2FB" BorderBrush="#5FC2FB"/>
     </Grid>
 </Page>

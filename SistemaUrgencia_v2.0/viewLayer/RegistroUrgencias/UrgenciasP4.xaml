@@ -5,77 +5,99 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias"
       mc:Ignorable="d"
-      Title="UrgenciasP4" Height="719.351" Width="1585.567">
+      Title="UrgenciasP4" Width="1324.227" Height="771.79">
 
     <StackPanel Background="White" VerticalAlignment="Stretch">
         <Canvas Height="8" Margin="52,30,60,0" Background="#21CCEF" Opacity="0.73"/>
-        <Button Margin="1280,30,107,0"  FontSize="30" FontFamily="Roboto" FontStyle="Italic" Foreground="White" Background="#FFD4252B" Height="40">
+        <Button Margin="1020,30,107,0"  FontSize="30" FontFamily="Roboto" FontStyle="Italic" Foreground="White" Background="#FFD4252B" Height="44" Click="cancelar4">
             Cancelar
         </Button>
         <TextBlock TextWrapping="Wrap" Margin="140,-55,630,0" Height="67" FontSize="50" FontFamily="Arial Rounded MT" Foreground="#5FC2FB" ><Bold><Run Text="Datos Del Paciente"/></Bold></TextBlock>
         <Image Height="68" Margin="28,-80,0,0" Source="/SistemaUrgencia_v2.0;component/Image1.png" Stretch="Fill" HorizontalAlignment="Left" Width="94"/>
         <Canvas Height="8" Margin="52,0,60,0" Background="#21CCEF" Opacity="0.73"/>
-        <Label FontSize="30" FontFamily="Roboto" Margin="52,0,1022,0">Solicitud de análisis de laboratorio:</Label>
-        <RadioButton Margin="123,0,1278,0" FontSize="20" FontFamily="Roboto">
+        <Label FontSize="30" FontFamily="Roboto" Margin="52,0,780,0">Solicitud de análisis de laboratorio:</Label>
+        <RadioButton Margin="123,0,1022,0" FontSize="20" FontFamily="Roboto">
             Activar analisis
         </RadioButton>
-        <Label FontSize="25" Margin="59,0,1326,0" FontFamily="Roboto">Datos asistente:</Label>
-        <Label FontSize="20" Margin="123,0,1385,0" FontFamily="Roboto">Codigo:</Label>
-        <TextBox Margin="206,-30,1278,0" Height="24"></TextBox>
-        <Label FontSize="20" Margin="114,0,1385,0" FontFamily="Roboto">Nombre:</Label>
-        <TextBox Margin="206,-30,1167,0" Height="24"></TextBox>
-        <Label FontSize="20" Margin="133,0,1387,0" FontFamily="Roboto">Cargo:</Label>
-        <TextBox Margin="206,-30,1183,0" Height="24    "></TextBox>
-        <Label FontSize="20" Margin="35,0,1385,0" FontFamily="Roboto">Nivel de solicitud:</Label>
-        <ComboBox Margin="206,-30,1288,0">
+        <Label FontSize="25" Margin="59,0,1059,0" FontFamily="Roboto">Datos asistente:</Label>
+        <Label FontSize="20" Margin="123,0,1118,0" FontFamily="Roboto">Codigo:</Label>
+        <TextBox Margin="206,-30,892,0" Height="24"></TextBox>
+        <Label FontSize="20" Margin="114,0,1118,0" FontFamily="Roboto">Nombre:</Label>
+        <TextBox Margin="206,-30,892,0" Height="24"></TextBox>
+        <Label FontSize="20" Margin="133,0,1123,0" FontFamily="Roboto">Cargo:</Label>
+        <TextBox Margin="206,-30,892,0" Height="24    "></TextBox>
+        <Label FontSize="20" Margin="35,0,1118,0" FontFamily="Roboto">Nivel de solicitud:</Label>
+        <ComboBox Margin="206,-30,1059,0">
             <ComboBoxItem IsSelected="True">Nivel 1</ComboBoxItem>
             <ComboBoxItem>Nivel 2</ComboBoxItem>
             <ComboBoxItem>Nivel 3</ComboBoxItem>
             <ComboBoxItem>Nivel 4</ComboBoxItem>
             <ComboBoxItem>Nivel 5</ComboBoxItem>
         </ComboBox>
-        <Label Margin="74,20,-74,0" FontSize="20" FontFamily="Roboto">Petición:</Label>
-        <CheckBox Margin="146,0,1326,0" FontSize="20" FontFamily="Roboto">Sangre</CheckBox>
-        <CheckBox Margin="146,0,1309,0" FontSize="20" FontFamily="Roboto">Heces</CheckBox>
-        <CheckBox Margin="146,0,1278,0" FontSize="20" FontFamily="Roboto">Orina</CheckBox>
+        <Label Margin="74,20,1156,0" FontSize="20" FontFamily="Roboto">Petición:</Label>
+        <CheckBox Margin="146,0,1080,0" FontSize="20" FontFamily="Roboto">Sangre</CheckBox>
+        <CheckBox Margin="146,0,1096,0" FontSize="20" FontFamily="Roboto">Heces</CheckBox>
+        <CheckBox Margin="146,0,1080,0" FontSize="20" FontFamily="Roboto">Orina</CheckBox>
 
-        <CheckBox Margin="342,-125,1134,0" FontSize="20" Height="23" FontFamily="Roboto">Precion</CheckBox>
-        <CheckBox Margin="342,-73,1102,0" FontSize="20" Height="24" FontFamily="Roboto">Inmunologia</CheckBox>
-        <CheckBox Margin="342,-23,1112,0" FontSize="20" FontFamily="Roboto">Quimica</CheckBox>
+        <CheckBox Margin="342,-125,892,0" FontSize="20" Height="23" FontFamily="Roboto">Precion</CheckBox>
+        <CheckBox Margin="342,-73,834,0" FontSize="20" Height="24" FontFamily="Roboto">Inmunologia</CheckBox>
+        <CheckBox Margin="342,-23,870,0" FontSize="20" FontFamily="Roboto">Quimica</CheckBox>
 
-        <Label FontSize="24" FontFamily="Roboto" Margin="0,0,1464,0">Solicitud:</Label>
-        <TextBox Margin="101,0,1022,0" Height="24"  ></TextBox>
+        <Label FontSize="24" FontFamily="Roboto" Margin="56,0,1146,0">Solicitud:</Label>
+        <TextBox Margin="101,0,851,0" Height="24"  ></TextBox>
         <!--sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss-->
-        <Label FontSize="30" FontFamily="Roboto" Margin="848,-860,226,0" Height="50">Solicitud de análisis de laboratorio:</Label>
-        <RadioButton Margin="919,-793,513,0" FontSize="20" FontFamily="Roboto" Height="26">
-            Activar analisis
+        <Label FontSize="30" FontFamily="Roboto" Margin="788,-840,104,0" Height="50">Solicitud radiografia:</Label>
+        <RadioButton Margin="859,-773,246,0" FontSize="20" FontFamily="Roboto" Height="26">
+            Activar Radiografia
         </RadioButton>
-        <Label FontSize="25" Margin="855,-720,530,0" FontFamily="Roboto" Height="40">Datos asistente:</Label>
-        <Label FontSize="20" Margin="919,-640,589,0" FontFamily="Roboto" Height="34">Codigo:</Label>
-        <TextBox Margin="1002,-630,482,0" Height="24"></TextBox>
-        <Label FontSize="20" Margin="910,-580,589,0" FontFamily="Roboto" Height="36">Nombre:</Label>
-        <TextBox Margin="1002,-580,371,0" Height="24"></TextBox>
-        <Label FontSize="20" Margin="929,-500,591,0" FontFamily="Roboto" Height="35">Cargo:</Label>
-        <TextBox Margin="1002,-500,387,0" Height="24    "></TextBox>
-        <Label FontSize="20" Margin="831,-430,589,0" FontFamily="Roboto" Height="34">Nivel de solicitud:</Label>
-        <ComboBox Margin="1002,-430,492,0" Height="24">
+        <Label FontSize="25" Margin="795,-700,336,0" FontFamily="Roboto" Height="40">Datos asistente:</Label>
+        <Label FontSize="20" Margin="859,-640,382,0" FontFamily="Roboto" Height="34">Codigo:</Label>
+        <TextBox Margin="942,-630,170,0" Height="24"></TextBox>
+        <Label FontSize="20" Margin="850,-580,382,0" FontFamily="Roboto" Height="36">Nombre:</Label>
+        <TextBox Margin="942,-580,170,0" Height="24"></TextBox>
+        <Label FontSize="20" Margin="869,-500,382,0" FontFamily="Roboto" Height="36">Cargo:</Label>
+        <TextBox Margin="942,-500,170,0" Height="24    "></TextBox>
+        <Label FontSize="20" Margin="771,-430,382,0" FontFamily="Roboto" Height="34">Nivel de solicitud:</Label>
+        <ComboBox Margin="942,-430,314,0" Height="30">
             <ComboBoxItem IsSelected="True">Nivel 1</ComboBoxItem>
             <ComboBoxItem>Nivel 2</ComboBoxItem>
             <ComboBoxItem>Nivel 3</ComboBoxItem>
             <ComboBoxItem>Nivel 4</ComboBoxItem>
             <ComboBoxItem>Nivel 5</ComboBoxItem>
         </ComboBox>
-        <Label Margin="870,-320,624,0" FontSize="20" FontFamily="Roboto" Height="41">Petición:</Label>
-        <CheckBox Margin="942,-260,530,0" FontSize="20" FontFamily="Roboto" Height="29">Sangre</CheckBox>
-        <CheckBox Margin="942,-210,513,0" FontSize="20" FontFamily="Roboto" Height="24">Heces</CheckBox>
-        <CheckBox Margin="942,-160,482,0" FontSize="20" FontFamily="Roboto" Height="31">Orina</CheckBox>
+        <Label Margin="810,-320,422,0" FontSize="20" FontFamily="Roboto" Height="40">Petición:</Label>
+        <CheckBox Margin="882,-260,350,0" FontSize="20" FontFamily="Roboto" Height="28">Cabeza</CheckBox>
+        <CheckBox Margin="882,-210,308,0" FontSize="20" FontFamily="Roboto" Height="24">Ext. sup. Der</CheckBox>
+        <CheckBox Margin="882,-160,308,0" FontSize="20" FontFamily="Roboto" Height="32">Ext. sup. Izq</CheckBox>
 
-        <CheckBox Margin="1138,-265,338,0" FontSize="20" Height="23" FontFamily="Roboto">Precion</CheckBox>
-        <CheckBox Margin="1138,-213,306,0" FontSize="20" Height="24" FontFamily="Roboto">Inmunologia</CheckBox>
-        <CheckBox Margin="1138,-170,316,0" FontSize="20" FontFamily="Roboto" Height="26">Quimica</CheckBox>
+        <CheckBox Margin="1078,-265,146,0" FontSize="20" Height="23" FontFamily="Roboto">Tronco</CheckBox>
+        <CheckBox Margin="1078,-213,104,0" FontSize="20" Height="24" FontFamily="Roboto">Ext. inf. Der</CheckBox>
+        <CheckBox Margin="1078,-170,120,0" FontSize="20" FontFamily="Roboto" Height="26">Ext. inf. Izq</CheckBox>
 
-        <Label FontSize="24" FontFamily="Roboto" Margin="796,-90,668,0" Height="42">Solicitud:</Label>
-        <TextBox Margin="897,-25,226,0" Height="24"  ></TextBox>
+        <Label FontSize="24" FontFamily="Roboto" Margin="736,-90,487,0" Height="42">Solicitud:</Label>
+        <TextBox Margin="837,-25,146,0" Height="24"></TextBox>
+
+        <Label Margin="1178,30,52,0" Height="34" FontFamily="Roboto" FontSize="20">Siguiente</Label>
+        <Button   Height="52" Margin="1156,0,50,0" Background="White" Click="Siguiente4">
+            <Image Source="/SistemaUrgencia_v2.0;component/Img/flecha.gif" RenderTransformOrigin="0.5,0.5" Width="88" Height="39">
+                <Image.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="180.00"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Image.RenderTransform>
+            </Image>
+        </Button>
+        <!--boton atras-->
+
+        <Label Margin="52,-140,1156,0" Height="34" FontFamily="Roboto" FontSize="20">Atras</Label>
+        <Button Height="52" Margin="50,-52,1156,0" Background="White" Click="Atras3">
+            <Image Source="/SistemaUrgencia_v2.0;component/Img/flecha.gif" RenderTransformOrigin="0.5,0.5" Width="88" Height="39">
+
+            </Image>
+        </Button>
     </StackPanel>
 </Page>
  

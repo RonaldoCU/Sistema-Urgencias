@@ -1,0 +1,846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBUrgenciasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Analisis">
+          <Key>
+            <PropertyRef Name="id_analisis" />
+          </Key>
+          <Property Name="id_analisis" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_solicitud_fk" Type="int" />
+          <Property Name="sangre" Type="bit" />
+          <Property Name="heces" Type="bit" />
+          <Property Name="orina" Type="bit" />
+          <Property Name="precion" Type="bit" />
+          <Property Name="inmunologia" Type="bit" />
+          <Property Name="quimica" Type="bit" />
+        </EntityType>
+        <EntityType Name="ConstantesVitales">
+          <Key>
+            <PropertyRef Name="id_CnsVitales" />
+          </Key>
+          <Property Name="id_CnsVitales" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="7" />
+          <Property Name="P_A" Type="float" />
+          <Property Name="F_C" Type="float" />
+          <Property Name="F_R" Type="float" />
+          <Property Name="T" Type="float" />
+        </EntityType>
+        <EntityType Name="DarCamas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cama" Type="int" />
+          <Property Name="habitacuon" Type="varchar" MaxLength="4" />
+          <Property Name="bloque" Type="varchar" MaxLength="4" />
+          <Property Name="destino" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="DatosUrgencia">
+          <Key>
+            <PropertyRef Name="id_datosUrgencia" />
+          </Key>
+          <Property Name="id_datosUrgencia" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="N_hoja" Type="int" />
+          <Property Name="fecha_hora" Type="datetime" />
+          <Property Name="especialidad" Type="varchar" MaxLength="80" />
+          <Property Name="Motivo_consulta" Type="varchar" MaxLength="80" />
+          <Property Name="id_modo_ingreso" Type="int" />
+          <Property Name="id_val_ini" Type="int" />
+        </EntityType>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="id_imagen" />
+          </Key>
+          <Property Name="id_imagen" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_solicitud_fk" Type="int" />
+          <Property Name="cabeza" Type="bit" />
+          <Property Name="Ext_sup_Izq" Type="bit" />
+          <Property Name="Ext_sup_Der" Type="bit" />
+          <Property Name="tronco" Type="bit" />
+          <Property Name="Ext_inf_Izq" Type="bit" />
+          <Property Name="Ext_inf_Der" Type="bit" />
+        </EntityType>
+        <EntityType Name="Ingresos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="modo_ingreso" Type="varchar" MaxLength="50" />
+          <Property Name="nivel_urgencia" Type="int" />
+          <Property Name="seguro" Type="varchar" MaxLength="50" />
+          <Property Name="id_camas" Type="int" />
+        </EntityType>
+        <EntityType Name="Perdida_liquidos">
+          <Key>
+            <PropertyRef Name="id_PL" />
+          </Key>
+          <Property Name="id_PL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hora" Type="time" Precision="7" />
+          <Property Name="diuresis" Type="varchar" MaxLength="10" />
+          <Property Name="deposicion" Type="varchar" MaxLength="10" />
+          <Property Name="vomito" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Prescripcion_Emergencia">
+          <Key>
+            <PropertyRef Name="id_tratamiento" />
+          </Key>
+          <Property Name="id_tratamiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreDoctor" Type="varchar" MaxLength="20" />
+          <Property Name="apellido" Type="varchar" MaxLength="20" />
+          <Property Name="cargo" Type="varchar" MaxLength="30" />
+          <Property Name="id_prescripcion" Type="int" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="30" />
+          <Property Name="cargo" Type="varchar" MaxLength="30" />
+          <Property Name="Nv_solicitud" Type="int" />
+          <Property Name="solicitud" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TipoPrescripcion">
+          <Key>
+            <PropertyRef Name="id_tipo_prescripcion" />
+          </Key>
+          <Property Name="id_tipo_prescripcion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="via_oral" Type="bit" />
+          <Property Name="via_sublingual" Type="bit" />
+          <Property Name="via_transdermica" Type="bit" />
+          <Property Name="via_topica" Type="bit" />
+          <Property Name="via_otica" Type="bit" />
+          <Property Name="via_vaginal" Type="bit" />
+          <Property Name="via_oftalmica" Type="bit" />
+          <Property Name="via_inhalatoria" Type="bit" />
+          <Property Name="via_recta" Type="bit" />
+          <Property Name="via_intranasal" Type="bit" />
+          <Property Name="via_parenteral" Type="bit" />
+          <Property Name="Prescripcion" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Valoracion_inicial">
+          <Key>
+            <PropertyRef Name="id_valoracion_ini" />
+          </Key>
+          <Property Name="id_valoracion_ini" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dolor" Type="varchar" MaxLength="100" />
+          <Property Name="tipo_dolor" Type="varchar" MaxLength="80" />
+          <Property Name="localizacion" Type="varchar" MaxLength="80" />
+          <Property Name="id_consVitales" Type="int" />
+          <Property Name="id_p_liquido" Type="int" />
+          <Property Name="id_anls" Type="int" />
+          <Property Name="id_Radiografias" Type="int" />
+          <Property Name="id_presc" Type="int" />
+        </EntityType>
+        <Association Name="FK__Analisis__id_sol__3E52440B">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Analisis" Type="Self.Analisis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="Analisis">
+              <PropertyRef Name="id_solicitud_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatosUrge__id_mo__534D60F1">
+          <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="0..1" />
+          <End Role="DatosUrgencia" Type="Self.DatosUrgencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingresos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DatosUrgencia">
+              <PropertyRef Name="id_modo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatosUrge__id_va__5441852A">
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="0..1" />
+          <End Role="DatosUrgencia" Type="Self.DatosUrgencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion_inicial">
+              <PropertyRef Name="id_valoracion_ini" />
+            </Principal>
+            <Dependent Role="DatosUrgencia">
+              <PropertyRef Name="id_val_ini" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__id_sol__412EB0B6">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="id_solicitud_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ingresos__id_cam__398D8EEE">
+          <End Role="DarCamas" Type="Self.DarCamas" Multiplicity="0..1" />
+          <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DarCamas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ingresos">
+              <PropertyRef Name="id_camas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prescripc__id_pr__49C3F6B7">
+          <End Role="TipoPrescripcion" Type="Self.TipoPrescripcion" Multiplicity="0..1" />
+          <End Role="Prescripcion_Emergencia" Type="Self.Prescripcion_Emergencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPrescripcion">
+              <PropertyRef Name="id_tipo_prescripcion" />
+            </Principal>
+            <Dependent Role="Prescripcion_Emergencia">
+              <PropertyRef Name="id_prescripcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_an__4E88ABD4">
+          <End Role="Analisis" Type="Self.Analisis" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analisis">
+              <PropertyRef Name="id_analisis" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_anls" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_co__4CA06362">
+          <End Role="ConstantesVitales" Type="Self.ConstantesVitales" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConstantesVitales">
+              <PropertyRef Name="id_CnsVitales" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_consVitales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_p___4D94879B">
+          <End Role="Perdida_liquidos" Type="Self.Perdida_liquidos" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perdida_liquidos">
+              <PropertyRef Name="id_PL" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_p_liquido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_pr__5070F446">
+          <End Role="Prescripcion_Emergencia" Type="Self.Prescripcion_Emergencia" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescripcion_Emergencia">
+              <PropertyRef Name="id_tratamiento" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_presc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_Ra__4F7CD00D">
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagenes">
+              <PropertyRef Name="id_imagen" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_Radiografias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBUrgenciasModelStoreContainer">
+          <EntitySet Name="Analisis" EntityType="Self.Analisis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ConstantesVitales" EntityType="Self.ConstantesVitales" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DarCamas" EntityType="Self.DarCamas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DatosUrgencia" EntityType="Self.DatosUrgencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ingresos" EntityType="Self.Ingresos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perdida_liquidos" EntityType="Self.Perdida_liquidos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescripcion_Emergencia" EntityType="Self.Prescripcion_Emergencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoPrescripcion" EntityType="Self.TipoPrescripcion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Valoracion_inicial" EntityType="Self.Valoracion_inicial" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Analisis__id_sol__3E52440B" Association="Self.FK__Analisis__id_sol__3E52440B">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Analisis" EntitySet="Analisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatosUrge__id_mo__534D60F1" Association="Self.FK__DatosUrge__id_mo__534D60F1">
+            <End Role="Ingresos" EntitySet="Ingresos" />
+            <End Role="DatosUrgencia" EntitySet="DatosUrgencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatosUrge__id_va__5441852A" Association="Self.FK__DatosUrge__id_va__5441852A">
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+            <End Role="DatosUrgencia" EntitySet="DatosUrgencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__id_sol__412EB0B6" Association="Self.FK__Imagenes__id_sol__412EB0B6">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingresos__id_cam__398D8EEE" Association="Self.FK__Ingresos__id_cam__398D8EEE">
+            <End Role="DarCamas" EntitySet="DarCamas" />
+            <End Role="Ingresos" EntitySet="Ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prescripc__id_pr__49C3F6B7" Association="Self.FK__Prescripc__id_pr__49C3F6B7">
+            <End Role="TipoPrescripcion" EntitySet="TipoPrescripcion" />
+            <End Role="Prescripcion_Emergencia" EntitySet="Prescripcion_Emergencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_an__4E88ABD4" Association="Self.FK__Valoracio__id_an__4E88ABD4">
+            <End Role="Analisis" EntitySet="Analisis" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_co__4CA06362" Association="Self.FK__Valoracio__id_co__4CA06362">
+            <End Role="ConstantesVitales" EntitySet="ConstantesVitales" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_p___4D94879B" Association="Self.FK__Valoracio__id_p___4D94879B">
+            <End Role="Perdida_liquidos" EntitySet="Perdida_liquidos" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_pr__5070F446" Association="Self.FK__Valoracio__id_pr__5070F446">
+            <End Role="Prescripcion_Emergencia" EntitySet="Prescripcion_Emergencia" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_Ra__4F7CD00D" Association="Self.FK__Valoracio__id_Ra__4F7CD00D">
+            <End Role="Imagenes" EntitySet="Imagenes" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBUrgenciasModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Analisis">
+          <Key>
+            <PropertyRef Name="id_analisis" />
+          </Key>
+          <Property Name="id_analisis" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_solicitud_fk" Type="Int32" />
+          <Property Name="sangre" Type="Boolean" />
+          <Property Name="heces" Type="Boolean" />
+          <Property Name="orina" Type="Boolean" />
+          <Property Name="precion" Type="Boolean" />
+          <Property Name="inmunologia" Type="Boolean" />
+          <Property Name="quimica" Type="Boolean" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK__Analisis__id_sol__3E52440B" FromRole="Analisis" ToRole="Solicitud" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__Valoracio__id_an__4E88ABD4" FromRole="Analisis" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="ConstantesVitales">
+          <Key>
+            <PropertyRef Name="id_CnsVitales" />
+          </Key>
+          <Property Name="id_CnsVitales" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora" Type="Time" Precision="7" />
+          <Property Name="P_A" Type="Double" />
+          <Property Name="F_C" Type="Double" />
+          <Property Name="F_R" Type="Double" />
+          <Property Name="T" Type="Double" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__Valoracio__id_co__4CA06362" FromRole="ConstantesVitales" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="DarCamas">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cama" Type="Int32" />
+          <Property Name="habitacuon" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="bloque" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="destino" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ingresos" Relationship="Self.FK__Ingresos__id_cam__398D8EEE" FromRole="DarCamas" ToRole="Ingresos" />
+        </EntityType>
+        <EntityType Name="DatosUrgencia">
+          <Key>
+            <PropertyRef Name="id_datosUrgencia" />
+          </Key>
+          <Property Name="id_datosUrgencia" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="N_hoja" Type="Int32" />
+          <Property Name="fecha_hora" Type="DateTime" Precision="3" />
+          <Property Name="especialidad" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="Motivo_consulta" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="id_modo_ingreso" Type="Int32" />
+          <Property Name="id_val_ini" Type="Int32" />
+          <NavigationProperty Name="Ingresos" Relationship="Self.FK__DatosUrge__id_mo__534D60F1" FromRole="DatosUrgencia" ToRole="Ingresos" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__DatosUrge__id_va__5441852A" FromRole="DatosUrgencia" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="Imagenes">
+          <Key>
+            <PropertyRef Name="id_imagen" />
+          </Key>
+          <Property Name="id_imagen" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_solicitud_fk" Type="Int32" />
+          <Property Name="cabeza" Type="Boolean" />
+          <Property Name="Ext_sup_Izq" Type="Boolean" />
+          <Property Name="Ext_sup_Der" Type="Boolean" />
+          <Property Name="tronco" Type="Boolean" />
+          <Property Name="Ext_inf_Izq" Type="Boolean" />
+          <Property Name="Ext_inf_Der" Type="Boolean" />
+          <NavigationProperty Name="Solicitud" Relationship="Self.FK__Imagenes__id_sol__412EB0B6" FromRole="Imagenes" ToRole="Solicitud" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__Valoracio__id_Ra__4F7CD00D" FromRole="Imagenes" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="Ingresos">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="modo_ingreso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nivel_urgencia" Type="Int32" />
+          <Property Name="seguro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="id_camas" Type="Int32" />
+          <NavigationProperty Name="DarCamas" Relationship="Self.FK__Ingresos__id_cam__398D8EEE" FromRole="Ingresos" ToRole="DarCamas" />
+          <NavigationProperty Name="DatosUrgencia" Relationship="Self.FK__DatosUrge__id_mo__534D60F1" FromRole="Ingresos" ToRole="DatosUrgencia" />
+        </EntityType>
+        <EntityType Name="Perdida_liquidos">
+          <Key>
+            <PropertyRef Name="id_PL" />
+          </Key>
+          <Property Name="id_PL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hora" Type="Time" Precision="7" />
+          <Property Name="diuresis" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="deposicion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="vomito" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__Valoracio__id_p___4D94879B" FromRole="Perdida_liquidos" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="Prescripcion_Emergencia">
+          <Key>
+            <PropertyRef Name="id_tratamiento" />
+          </Key>
+          <Property Name="id_tratamiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreDoctor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="cargo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="id_prescripcion" Type="Int32" />
+          <NavigationProperty Name="TipoPrescripcion" Relationship="Self.FK__Prescripc__id_pr__49C3F6B7" FromRole="Prescripcion_Emergencia" ToRole="TipoPrescripcion" />
+          <NavigationProperty Name="Valoracion_inicial" Relationship="Self.FK__Valoracio__id_pr__5070F446" FromRole="Prescripcion_Emergencia" ToRole="Valoracion_inicial" />
+        </EntityType>
+        <EntityType Name="Solicitud">
+          <Key>
+            <PropertyRef Name="id_solicitud" />
+          </Key>
+          <Property Name="id_solicitud" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cargo" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Nv_solicitud" Type="Int32" />
+          <Property Name="solicitud1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Analisis" Relationship="Self.FK__Analisis__id_sol__3E52440B" FromRole="Solicitud" ToRole="Analisis" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Imagenes__id_sol__412EB0B6" FromRole="Solicitud" ToRole="Imagenes" />
+        </EntityType>
+        <EntityType Name="TipoPrescripcion">
+          <Key>
+            <PropertyRef Name="id_tipo_prescripcion" />
+          </Key>
+          <Property Name="id_tipo_prescripcion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="via_oral" Type="Boolean" />
+          <Property Name="via_sublingual" Type="Boolean" />
+          <Property Name="via_transdermica" Type="Boolean" />
+          <Property Name="via_topica" Type="Boolean" />
+          <Property Name="via_otica" Type="Boolean" />
+          <Property Name="via_vaginal" Type="Boolean" />
+          <Property Name="via_oftalmica" Type="Boolean" />
+          <Property Name="via_inhalatoria" Type="Boolean" />
+          <Property Name="via_recta" Type="Boolean" />
+          <Property Name="via_intranasal" Type="Boolean" />
+          <Property Name="via_parenteral" Type="Boolean" />
+          <Property Name="Prescripcion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Prescripcion_Emergencia" Relationship="Self.FK__Prescripc__id_pr__49C3F6B7" FromRole="TipoPrescripcion" ToRole="Prescripcion_Emergencia" />
+        </EntityType>
+        <EntityType Name="Valoracion_inicial">
+          <Key>
+            <PropertyRef Name="id_valoracion_ini" />
+          </Key>
+          <Property Name="id_valoracion_ini" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dolor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="tipo_dolor" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="localizacion" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="id_consVitales" Type="Int32" />
+          <Property Name="id_p_liquido" Type="Int32" />
+          <Property Name="id_anls" Type="Int32" />
+          <Property Name="id_Radiografias" Type="Int32" />
+          <Property Name="id_presc" Type="Int32" />
+          <NavigationProperty Name="Analisis" Relationship="Self.FK__Valoracio__id_an__4E88ABD4" FromRole="Valoracion_inicial" ToRole="Analisis" />
+          <NavigationProperty Name="ConstantesVitales" Relationship="Self.FK__Valoracio__id_co__4CA06362" FromRole="Valoracion_inicial" ToRole="ConstantesVitales" />
+          <NavigationProperty Name="DatosUrgencia" Relationship="Self.FK__DatosUrge__id_va__5441852A" FromRole="Valoracion_inicial" ToRole="DatosUrgencia" />
+          <NavigationProperty Name="Imagenes" Relationship="Self.FK__Valoracio__id_Ra__4F7CD00D" FromRole="Valoracion_inicial" ToRole="Imagenes" />
+          <NavigationProperty Name="Perdida_liquidos" Relationship="Self.FK__Valoracio__id_p___4D94879B" FromRole="Valoracion_inicial" ToRole="Perdida_liquidos" />
+          <NavigationProperty Name="Prescripcion_Emergencia" Relationship="Self.FK__Valoracio__id_pr__5070F446" FromRole="Valoracion_inicial" ToRole="Prescripcion_Emergencia" />
+        </EntityType>
+        <Association Name="FK__Analisis__id_sol__3E52440B">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Analisis" Type="Self.Analisis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="Analisis">
+              <PropertyRef Name="id_solicitud_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_an__4E88ABD4">
+          <End Role="Analisis" Type="Self.Analisis" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Analisis">
+              <PropertyRef Name="id_analisis" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_anls" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_co__4CA06362">
+          <End Role="ConstantesVitales" Type="Self.ConstantesVitales" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ConstantesVitales">
+              <PropertyRef Name="id_CnsVitales" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_consVitales" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ingresos__id_cam__398D8EEE">
+          <End Role="DarCamas" Type="Self.DarCamas" Multiplicity="0..1" />
+          <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DarCamas">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Ingresos">
+              <PropertyRef Name="id_camas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatosUrge__id_mo__534D60F1">
+          <End Role="Ingresos" Type="Self.Ingresos" Multiplicity="0..1" />
+          <End Role="DatosUrgencia" Type="Self.DatosUrgencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ingresos">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="DatosUrgencia">
+              <PropertyRef Name="id_modo_ingreso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__DatosUrge__id_va__5441852A">
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="0..1" />
+          <End Role="DatosUrgencia" Type="Self.DatosUrgencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Valoracion_inicial">
+              <PropertyRef Name="id_valoracion_ini" />
+            </Principal>
+            <Dependent Role="DatosUrgencia">
+              <PropertyRef Name="id_val_ini" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Imagenes__id_sol__412EB0B6">
+          <End Role="Solicitud" Type="Self.Solicitud" Multiplicity="0..1" />
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Solicitud">
+              <PropertyRef Name="id_solicitud" />
+            </Principal>
+            <Dependent Role="Imagenes">
+              <PropertyRef Name="id_solicitud_fk" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_Ra__4F7CD00D">
+          <End Role="Imagenes" Type="Self.Imagenes" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Imagenes">
+              <PropertyRef Name="id_imagen" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_Radiografias" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_p___4D94879B">
+          <End Role="Perdida_liquidos" Type="Self.Perdida_liquidos" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perdida_liquidos">
+              <PropertyRef Name="id_PL" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_p_liquido" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prescripc__id_pr__49C3F6B7">
+          <End Role="TipoPrescripcion" Type="Self.TipoPrescripcion" Multiplicity="0..1" />
+          <End Role="Prescripcion_Emergencia" Type="Self.Prescripcion_Emergencia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TipoPrescripcion">
+              <PropertyRef Name="id_tipo_prescripcion" />
+            </Principal>
+            <Dependent Role="Prescripcion_Emergencia">
+              <PropertyRef Name="id_prescripcion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Valoracio__id_pr__5070F446">
+          <End Role="Prescripcion_Emergencia" Type="Self.Prescripcion_Emergencia" Multiplicity="0..1" />
+          <End Role="Valoracion_inicial" Type="Self.Valoracion_inicial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prescripcion_Emergencia">
+              <PropertyRef Name="id_tratamiento" />
+            </Principal>
+            <Dependent Role="Valoracion_inicial">
+              <PropertyRef Name="id_presc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBUrgenciasEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Analisis" EntityType="Self.Analisis" />
+          <EntitySet Name="ConstantesVitales" EntityType="Self.ConstantesVitales" />
+          <EntitySet Name="DarCamas" EntityType="Self.DarCamas" />
+          <EntitySet Name="DatosUrgencia" EntityType="Self.DatosUrgencia" />
+          <EntitySet Name="Imagenes" EntityType="Self.Imagenes" />
+          <EntitySet Name="Ingresos" EntityType="Self.Ingresos" />
+          <EntitySet Name="Perdida_liquidos" EntityType="Self.Perdida_liquidos" />
+          <EntitySet Name="Prescripcion_Emergencia" EntityType="Self.Prescripcion_Emergencia" />
+          <EntitySet Name="Solicitud" EntityType="Self.Solicitud" />
+          <EntitySet Name="TipoPrescripcion" EntityType="Self.TipoPrescripcion" />
+          <EntitySet Name="Valoracion_inicial" EntityType="Self.Valoracion_inicial" />
+          <AssociationSet Name="FK__Analisis__id_sol__3E52440B" Association="Self.FK__Analisis__id_sol__3E52440B">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Analisis" EntitySet="Analisis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_an__4E88ABD4" Association="Self.FK__Valoracio__id_an__4E88ABD4">
+            <End Role="Analisis" EntitySet="Analisis" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_co__4CA06362" Association="Self.FK__Valoracio__id_co__4CA06362">
+            <End Role="ConstantesVitales" EntitySet="ConstantesVitales" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ingresos__id_cam__398D8EEE" Association="Self.FK__Ingresos__id_cam__398D8EEE">
+            <End Role="DarCamas" EntitySet="DarCamas" />
+            <End Role="Ingresos" EntitySet="Ingresos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatosUrge__id_mo__534D60F1" Association="Self.FK__DatosUrge__id_mo__534D60F1">
+            <End Role="Ingresos" EntitySet="Ingresos" />
+            <End Role="DatosUrgencia" EntitySet="DatosUrgencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__DatosUrge__id_va__5441852A" Association="Self.FK__DatosUrge__id_va__5441852A">
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+            <End Role="DatosUrgencia" EntitySet="DatosUrgencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Imagenes__id_sol__412EB0B6" Association="Self.FK__Imagenes__id_sol__412EB0B6">
+            <End Role="Solicitud" EntitySet="Solicitud" />
+            <End Role="Imagenes" EntitySet="Imagenes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_Ra__4F7CD00D" Association="Self.FK__Valoracio__id_Ra__4F7CD00D">
+            <End Role="Imagenes" EntitySet="Imagenes" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_p___4D94879B" Association="Self.FK__Valoracio__id_p___4D94879B">
+            <End Role="Perdida_liquidos" EntitySet="Perdida_liquidos" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prescripc__id_pr__49C3F6B7" Association="Self.FK__Prescripc__id_pr__49C3F6B7">
+            <End Role="TipoPrescripcion" EntitySet="TipoPrescripcion" />
+            <End Role="Prescripcion_Emergencia" EntitySet="Prescripcion_Emergencia" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Valoracio__id_pr__5070F446" Association="Self.FK__Valoracio__id_pr__5070F446">
+            <End Role="Prescripcion_Emergencia" EntitySet="Prescripcion_Emergencia" />
+            <End Role="Valoracion_inicial" EntitySet="Valoracion_inicial" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBUrgenciasModelStoreContainer" CdmEntityContainer="DBUrgenciasEntities">
+          <EntitySetMapping Name="Analisis">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Analisis">
+              <MappingFragment StoreEntitySet="Analisis">
+                <ScalarProperty Name="id_analisis" ColumnName="id_analisis" />
+                <ScalarProperty Name="id_solicitud_fk" ColumnName="id_solicitud_fk" />
+                <ScalarProperty Name="sangre" ColumnName="sangre" />
+                <ScalarProperty Name="heces" ColumnName="heces" />
+                <ScalarProperty Name="orina" ColumnName="orina" />
+                <ScalarProperty Name="precion" ColumnName="precion" />
+                <ScalarProperty Name="inmunologia" ColumnName="inmunologia" />
+                <ScalarProperty Name="quimica" ColumnName="quimica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ConstantesVitales">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.ConstantesVitales">
+              <MappingFragment StoreEntitySet="ConstantesVitales">
+                <ScalarProperty Name="id_CnsVitales" ColumnName="id_CnsVitales" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="P_A" ColumnName="P_A" />
+                <ScalarProperty Name="F_C" ColumnName="F_C" />
+                <ScalarProperty Name="F_R" ColumnName="F_R" />
+                <ScalarProperty Name="T" ColumnName="T" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DarCamas">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.DarCamas">
+              <MappingFragment StoreEntitySet="DarCamas">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="cama" ColumnName="cama" />
+                <ScalarProperty Name="habitacuon" ColumnName="habitacuon" />
+                <ScalarProperty Name="bloque" ColumnName="bloque" />
+                <ScalarProperty Name="destino" ColumnName="destino" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatosUrgencia">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.DatosUrgencia">
+              <MappingFragment StoreEntitySet="DatosUrgencia">
+                <ScalarProperty Name="id_datosUrgencia" ColumnName="id_datosUrgencia" />
+                <ScalarProperty Name="N_hoja" ColumnName="N_hoja" />
+                <ScalarProperty Name="fecha_hora" ColumnName="fecha_hora" />
+                <ScalarProperty Name="especialidad" ColumnName="especialidad" />
+                <ScalarProperty Name="Motivo_consulta" ColumnName="Motivo_consulta" />
+                <ScalarProperty Name="id_modo_ingreso" ColumnName="id_modo_ingreso" />
+                <ScalarProperty Name="id_val_ini" ColumnName="id_val_ini" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Imagenes">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Imagenes">
+              <MappingFragment StoreEntitySet="Imagenes">
+                <ScalarProperty Name="id_imagen" ColumnName="id_imagen" />
+                <ScalarProperty Name="id_solicitud_fk" ColumnName="id_solicitud_fk" />
+                <ScalarProperty Name="cabeza" ColumnName="cabeza" />
+                <ScalarProperty Name="Ext_sup_Izq" ColumnName="Ext_sup_Izq" />
+                <ScalarProperty Name="Ext_sup_Der" ColumnName="Ext_sup_Der" />
+                <ScalarProperty Name="tronco" ColumnName="tronco" />
+                <ScalarProperty Name="Ext_inf_Izq" ColumnName="Ext_inf_Izq" />
+                <ScalarProperty Name="Ext_inf_Der" ColumnName="Ext_inf_Der" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ingresos">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Ingresos">
+              <MappingFragment StoreEntitySet="Ingresos">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="modo_ingreso" ColumnName="modo_ingreso" />
+                <ScalarProperty Name="nivel_urgencia" ColumnName="nivel_urgencia" />
+                <ScalarProperty Name="seguro" ColumnName="seguro" />
+                <ScalarProperty Name="id_camas" ColumnName="id_camas" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perdida_liquidos">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Perdida_liquidos">
+              <MappingFragment StoreEntitySet="Perdida_liquidos">
+                <ScalarProperty Name="id_PL" ColumnName="id_PL" />
+                <ScalarProperty Name="hora" ColumnName="hora" />
+                <ScalarProperty Name="diuresis" ColumnName="diuresis" />
+                <ScalarProperty Name="deposicion" ColumnName="deposicion" />
+                <ScalarProperty Name="vomito" ColumnName="vomito" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescripcion_Emergencia">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Prescripcion_Emergencia">
+              <MappingFragment StoreEntitySet="Prescripcion_Emergencia">
+                <ScalarProperty Name="id_tratamiento" ColumnName="id_tratamiento" />
+                <ScalarProperty Name="nombreDoctor" ColumnName="nombreDoctor" />
+                <ScalarProperty Name="apellido" ColumnName="apellido" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="id_prescripcion" ColumnName="id_prescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solicitud">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Solicitud">
+              <MappingFragment StoreEntitySet="Solicitud">
+                <ScalarProperty Name="id_solicitud" ColumnName="id_solicitud" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="cargo" ColumnName="cargo" />
+                <ScalarProperty Name="Nv_solicitud" ColumnName="Nv_solicitud" />
+                <ScalarProperty Name="solicitud1" ColumnName="solicitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TipoPrescripcion">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.TipoPrescripcion">
+              <MappingFragment StoreEntitySet="TipoPrescripcion">
+                <ScalarProperty Name="id_tipo_prescripcion" ColumnName="id_tipo_prescripcion" />
+                <ScalarProperty Name="via_oral" ColumnName="via_oral" />
+                <ScalarProperty Name="via_sublingual" ColumnName="via_sublingual" />
+                <ScalarProperty Name="via_transdermica" ColumnName="via_transdermica" />
+                <ScalarProperty Name="via_topica" ColumnName="via_topica" />
+                <ScalarProperty Name="via_otica" ColumnName="via_otica" />
+                <ScalarProperty Name="via_vaginal" ColumnName="via_vaginal" />
+                <ScalarProperty Name="via_oftalmica" ColumnName="via_oftalmica" />
+                <ScalarProperty Name="via_inhalatoria" ColumnName="via_inhalatoria" />
+                <ScalarProperty Name="via_recta" ColumnName="via_recta" />
+                <ScalarProperty Name="via_intranasal" ColumnName="via_intranasal" />
+                <ScalarProperty Name="via_parenteral" ColumnName="via_parenteral" />
+                <ScalarProperty Name="Prescripcion" ColumnName="Prescripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Valoracion_inicial">
+            <EntityTypeMapping TypeName="DBUrgenciasModel.Valoracion_inicial">
+              <MappingFragment StoreEntitySet="Valoracion_inicial">
+                <ScalarProperty Name="id_valoracion_ini" ColumnName="id_valoracion_ini" />
+                <ScalarProperty Name="dolor" ColumnName="dolor" />
+                <ScalarProperty Name="tipo_dolor" ColumnName="tipo_dolor" />
+                <ScalarProperty Name="localizacion" ColumnName="localizacion" />
+                <ScalarProperty Name="id_consVitales" ColumnName="id_consVitales" />
+                <ScalarProperty Name="id_p_liquido" ColumnName="id_p_liquido" />
+                <ScalarProperty Name="id_anls" ColumnName="id_anls" />
+                <ScalarProperty Name="id_Radiografias" ColumnName="id_Radiografias" />
+                <ScalarProperty Name="id_presc" ColumnName="id_presc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

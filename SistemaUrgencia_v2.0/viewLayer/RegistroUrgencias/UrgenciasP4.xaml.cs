@@ -25,6 +25,23 @@ namespace SistemaUrgencia_v2._0.viewLayer.RegistroUrgencias
             InitializeComponent();
         }
 
-     
+        private void Atras3(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UrgenciasP3());
+        }
+
+        private void Siguiente4(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UrgenciasP5());
+        }
+
+        private void cancelar4(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult rstd = MessageBox.Show("Desea cancelar el resistro", "Urgencias", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No);
+            if (rstd == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
     }
 }
